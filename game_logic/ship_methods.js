@@ -17,8 +17,8 @@ module.exports.damageShip = (ship, coordinates) => {
 }
 
 module.exports.fire = (player, coordinates) => {
-	let ship = checkForShip(player, coordinates);
+	let ship = module.exports.checkForShip(player, coordinates);
 	if (ship) {
-		damageShip(ship, coordinates);
+    module.exports.damageShip(ship, coordinates);
 	}	
 }
