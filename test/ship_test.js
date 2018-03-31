@@ -1,9 +1,9 @@
 let { assert } = require('chai');
 
-describe('checkForShip', function () {
+describe('checkForShip', () => {
 	let checkForShip = require('../game_logic/ship_methods').checkForShip;
 	
-	it('should correctly report no ship at a given players coordinate', function () {
+	it('should correctly report no ship at a given players coordinate', () => {
 		let player = {
 			ships: [
 				{
@@ -14,7 +14,7 @@ describe('checkForShip', function () {
 		assert.isFalse(checkForShip(player, [9, 9]), "no ship at this location");
 	});
 	
-	it('should correctly report a ship located at the given coordinates', function () {
+	it('should correctly report a ship located at the given coordinates', () => {
 		let player = {
 			ships: [
 				{
@@ -25,7 +25,7 @@ describe('checkForShip', function () {
 		assert.deepEqual(checkForShip(player, [0, 0]),(player.ships[0]));
 	});
 	
-	it('should handle ships located at more than one coordinate', function () {
+	it('should handle ships located at more than one coordinate', () => {
 		let player = {
 			ships: [
 				{
@@ -38,7 +38,7 @@ describe('checkForShip', function () {
 		assert.isFalse(checkForShip(player, [9, 9]));
 	});
 	
-	it('should handle checking multiple ships', function () {
+	it('should handle checking multiple ships', () => {
 		let player = {
 			ships: [
 				{
@@ -62,10 +62,10 @@ describe('checkForShip', function () {
 	});
 });
 
-describe('damageShip', function () {
+describe('damageShip', () => {
 	let {damageShip} = require('../game_logic/ship_methods');
 	
-	it('should register damage on a given ship at a given location', function () {
+	it('should register damage on a given ship at a given location', () => {
 		let ship = {
 			locations: [[0, 0]],
 			damage: []
@@ -76,10 +76,10 @@ describe('damageShip', function () {
 	});
 });
 
-describe('fire', function () {
+describe('fire', () => {
 	let {fire} = require('../game_logic/ship_methods');
 	
-	it('should record damage on the given players ship at a given coordinate', function () {
+	it('should record damage on the given players ship at a given coordinate', () => {
 		let player = {
 			ships: [
 				{
@@ -92,7 +92,7 @@ describe('fire', function () {
 		assert.deepEqual(player.ships[0].damage[0],([0, 0]));
 	});
 	
-	it('should NOT record damage if there is no ship at my coordinates', function () {
+	it('should NOT record damage if there is no ship at my coordinates', () => {
 		let player = {
 			ships: [
 				{
